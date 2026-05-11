@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
 
         <div className="flex items-center gap-6">
           <a href="#" className="font-medium hover:text-blue-600 transition">Login</a>
-          <button className="bg-black text-white px-5 py-2 rounded-lg font-medium hover:bg-gray-800 transition">
+          <button className="bg-black text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-800 transition">
             Get Started
           </button>
         </div>
