@@ -1,5 +1,5 @@
 import React from "react";
-import { MapPin } from "lucide-react";
+import Image from "next/image";
 
 const footerLinks = {
   Product: ["Features", "Pricing", "FAQ"],
@@ -13,10 +13,14 @@ const Footer = () => {
       <div className="mx-auto max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
         {/* Brand */}
         <div className="sm:col-span-2 lg:col-span-1">
-          <div className="flex items-center gap-2">
-            <MapPin className="size-6 text-emerald-400" strokeWidth={2} />
-            <span className="text-xl font-bold text-white">Travel Bucket</span>
-          </div>
+          <Image
+            src="/images/logotb.png"
+            alt="Travel Bucket"
+            width={160}
+            height={40}
+            className="h-9 w-auto object-contain brightness-0 invert"
+            priority
+          />
           <p className="mt-4 text-sm leading-relaxed text-slate-400 max-w-xs">
             Your ultimate travel planning companion for organizing dream
             destinations.
