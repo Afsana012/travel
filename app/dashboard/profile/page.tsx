@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   MapPin,
   CheckCircle2,
@@ -13,6 +13,7 @@ import {
   CalendarDays,
   User,
 } from "lucide-react";
+import EditProfileDialog from "@/components/EditProfileDialog";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -100,6 +101,8 @@ const recentDestinations = [
 ];
 
 export default function ProfilePage() {
+  const [editOpen, setEditOpen] = useState(false);
+
   return (
     <div className="p-4 sm:p-6 lg:p-8 space-y-8">
       {/* Title */}
@@ -141,6 +144,7 @@ export default function ProfilePage() {
           <Button
             variant="outline"
             className="gap-2 shrink-0"
+            onClick={() => setEditOpen(true)}
           >
             <Pencil className="size-3.5" />
             Edit Profile
@@ -208,6 +212,8 @@ export default function ProfilePage() {
           ))}
         </div>
       </div>
+
+      <EditProfileDialog open={editOpen} onOpenChange={setEditOpen} />
     </div>
   );
 }

@@ -8,9 +8,11 @@ import {
   MoreVertical,
   CheckSquare,
 } from "lucide-react";
+import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import DeleteConfirmDialog from "@/components/DeleteConfirmDialog";
 
 const destinations = [
   {
@@ -98,6 +100,14 @@ const destinations = [
 export default function MyDestinationsPage() {
   const [search, setSearch] = useState("");
   const [selectMode, setSelectMode] = useState(false);
+  const [deleteTarget, setDeleteTarget] = useState<{ id: number; name: string } | null>(null);
+  const [favIds, setFavIds] = useState<number[]>(
+    destinations.filter((d) => d.favorited).map((d) => d.id)
+  );
+
+  const toggleFav = (id: number) => {
+    setFavIds((prev) => (prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]));
+  };
 
   const filtered = destinations.filter(
     (d) =>
@@ -156,10 +166,13 @@ export default function MyDestinationsPage() {
                 {dest.status}
               </span>
               {/* Favorite */}
-              <button className="absolute top-3 right-3 size-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition">
+              <button
+                onClick={() => toggleFav(dest.id)}
+                className="absolute top-3 right-3 size-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition"
+              >
                 <Heart
                   className={`size-4 ${
-                    dest.favorited
+                    favIds.includes(dest.id)
                       ? "fill-pink-500 text-pink-500"
                       : "text-gray-600"
                   }`}
@@ -203,18 +216,21 @@ export default function MyDestinationsPage() {
 
               {/* Actions */}
               <div className="flex gap-2 pt-1">
+                <Link href={`/dashboard/destinations/${dest.id}`} className="flex-1">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="gap-1.5 w-full h-8"
+                  >
+                    <Eye className="size-3.5" />
+                    View
+                  </Button>
+                </Link>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="gap-1.5 flex-1 h-8"
-                >
-                  <Eye className="size-3.5" />
-                  View
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="gap-1.5 flex-1 h-8"
+                  className="gap-1.5 flex-1 h-8 text-red-500 hover:text-red-600 hover:bg-red-50"
+                  onClick={() => setDeleteTarget({ id: dest.id, name: dest.name })}
                 >
                   <Share2 className="size-3.5" />
                   Share
@@ -225,6 +241,11 @@ export default function MyDestinationsPage() {
         ))}
       </div>
 
+      <DeleteConfirmDialog
+        open={!!deleteTarget}
+        onOpenChange={(open) => !open && setDeleteTarget(null)}
+        name={deleteTarget?.name ?? ""}
+      />
     </div>
   );
 }

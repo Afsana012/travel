@@ -11,6 +11,7 @@ import {
   X,
   SlidersHorizontal,
 } from "lucide-react";
+import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -101,6 +102,11 @@ export default function DashboardPage() {
     ...filterSeason.map((s) => ({ label: s, clear: () => setFilterSeason(filterSeason.filter((v) => v !== s)) })),
     ...filterPriority.map((s) => ({ label: s, clear: () => setFilterPriority(filterPriority.filter((v) => v !== s)) })),
   ];
+
+  const filteredDestinations = destinations.filter((d) => {
+    if (filterStatus.length > 0 && !filterStatus.some((s) => d.status.includes(s === "Canceled" ? "Cancel" : s))) return false;
+    return true;
+  });
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-6 space-y-6">
@@ -257,7 +263,7 @@ export default function DashboardPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {destinations.map((dest) => (
+              {filteredDestinations.map((dest) => (
                 <div
                   key={dest.id}
                   className="rounded-xl bg-white ring-1 ring-gray-100 overflow-hidden group"
@@ -296,10 +302,12 @@ export default function DashboardPage() {
                       {dest.cost} · {dest.costAmount}
                     </p>
                     <div className="flex gap-2 pt-2">
-                      <Button variant="outline" size="sm" className="gap-1.5 flex-1">
-                        <Eye className="size-3.5" />
-                        View
-                      </Button>
+                      <Link href={`/dashboard/destinations/${dest.id}`} className="flex-1">
+                        <Button variant="outline" size="sm" className="gap-1.5 w-full">
+                          <Eye className="size-3.5" />
+                          View
+                        </Button>
+                      </Link>
                       <Button variant="outline" size="sm" className="gap-1.5 flex-1">
                         <Share2 className="size-3.5" />
                         Share
