@@ -216,16 +216,12 @@ export default function MyDestinationsPage() {
 
               {/* Actions */}
               <div className="flex gap-2 pt-1">
-                <Link href={`/dashboard/destinations/${dest.id}`} className="flex-1">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="gap-1.5 w-full h-8"
-                  >
+                <Button variant="outline" size="sm" className="gap-1.5 flex-1 h-8" asChild>
+                  <Link href={`/dashboard/destinations/${dest.id}`}>
                     <Eye className="size-3.5" />
                     View
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
                 <Button
                   variant="outline"
                   size="sm"

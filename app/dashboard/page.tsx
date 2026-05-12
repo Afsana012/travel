@@ -302,12 +302,12 @@ export default function DashboardPage() {
                       {dest.cost} · {dest.costAmount}
                     </p>
                     <div className="flex gap-2 pt-2">
-                      <Link href={`/dashboard/destinations/${dest.id}`} className="flex-1">
-                        <Button variant="outline" size="sm" className="gap-1.5 w-full">
+                      <Button variant="outline" size="sm" className="gap-1.5 flex-1" asChild>
+                        <Link href={`/dashboard/destinations/${dest.id}`}>
                           <Eye className="size-3.5" />
                           View
-                        </Button>
-                      </Link>
+                        </Link>
+                      </Button>
                       <Button variant="outline" size="sm" className="gap-1.5 flex-1">
                         <Share2 className="size-3.5" />
                         Share
