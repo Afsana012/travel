@@ -75,7 +75,7 @@ const Features = () => {
         {features.map((feature) => (
           <div
             key={feature.title}
-            className={`rounded-xl p-6 ${feature.bg} transition hover:shadow-md`}
+            className={`rounded-xl p-4 sm:p-6 ${feature.bg} transition hover:shadow-md`}
           >
             <div className={`mb-4 ${feature.iconColor}`}>
               <feature.icon className="size-8" strokeWidth={1.5} />

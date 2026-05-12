@@ -186,18 +186,18 @@ const AddDestinationDialog = ({
           </div>
 
           {/* Actions */}
-          <div className="flex justify-end gap-3 pt-2 border-t border-gray-100">
+          <div className="flex flex-col-reverse sm:flex-row sm:justify-end gap-3 pt-2 border-t border-gray-100">
             <Button
               type="button"
               variant="outline"
               onClick={() => onOpenChange(false)}
-              className="min-w-24"
+              className="w-full sm:w-auto sm:min-w-24"
             >
               Cancel
             </Button>
             <Button
               type="submit"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white min-w-32"
+              className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white sm:min-w-32"
             >
               Add Destination
             </Button>

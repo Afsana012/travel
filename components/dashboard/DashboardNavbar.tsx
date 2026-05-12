@@ -11,7 +11,7 @@ const DashboardNavbar = () => {
 
   return (
     <>
-      <div className="sticky top-0 md:top-0 z-30 bg-white border-b border-gray-100 px-4 sm:px-6 lg:px-8 py-3">
+      <div className="sticky top-14 md:top-0 z-30 bg-white border-b border-gray-100 px-4 sm:px-6 lg:px-8 py-3">
         <div className="flex items-center gap-3">
           <div className="relative flex-1 max-w-sm">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-gray-400" />

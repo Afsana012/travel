@@ -12,7 +12,7 @@ const Footer = () => {
     <footer className="bg-slate-800 px-4 sm:px-6 md:px-10 lg:px-16 py-12 sm:py-16">
       <div className="mx-auto max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
         {/* Brand */}
-        <div className="sm:col-span-2 lg:col-span-1">
+        <div className="lg:col-span-1">
           <Image
             src="/images/logotb.png"
             alt="Travel Bucket"

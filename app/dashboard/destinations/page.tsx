@@ -142,7 +142,7 @@ export default function MyDestinationsPage() {
             }`}
           >
             {/* Image */}
-            <div className="relative h-44 overflow-hidden">
+            <div className="relative h-36 sm:h-44 overflow-hidden">
               <Image
                 src={dest.image}
                 alt={dest.name}
@@ -166,7 +166,7 @@ export default function MyDestinationsPage() {
                 />
               </button>
               {/* More */}
-              <button className="absolute top-3 right-13 size-8 rounded-full bg-white/80 backdrop-blur-sm items-center justify-center hover:bg-white transition hidden sm:flex">
+              <button className="absolute top-3 right-14 size-8 rounded-full bg-white/80 backdrop-blur-sm items-center justify-center hover:bg-white transition hidden sm:flex">
                 <MoreVertical className="size-4 text-gray-600" />
               </button>
             </div>

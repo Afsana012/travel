@@ -29,7 +29,7 @@ const Hero = () => {
             </div>
 
             {/* Right Image */}
-            <div className="w-full lg:w-1/2 flex justify-center">
+            <div className="w-full lg:w-1/2 flex justify-center overflow-hidden">
                 <img
                     src="./images/banner.png"
                     alt="Travel Concept"

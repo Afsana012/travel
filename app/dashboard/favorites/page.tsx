@@ -211,7 +211,7 @@ export default function FavoritesPage() {
       {view === "list" && filtered.length > 0 && (
         <div className="space-y-3">
           {/* Sort header */}
-          <div className="hidden sm:grid grid-cols-[1fr_120px_120px_120px_100px] gap-4 px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wide">
+          <div className="hidden md:grid grid-cols-[1fr_100px_100px_100px_80px] gap-3 px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wide">
             <span>Destination</span>
             <span>Status</span>
             <span>Date</span>
@@ -250,19 +250,19 @@ export default function FavoritesPage() {
 
                 {/* Status */}
                 <span
-                  className={`hidden sm:block text-xs font-semibold px-2.5 py-1 rounded-full ${dest.statusColor} shrink-0`}
+                  className={`hidden md:block text-xs font-semibold px-2.5 py-1 rounded-full ${dest.statusColor} shrink-0`}
                 >
                   {dest.status}
                 </span>
 
                 {/* Date */}
-                <span className="hidden sm:block text-sm text-gray-400 w-28 shrink-0">
+                <span className="hidden md:block text-sm text-gray-400 w-28 shrink-0">
                   {dest.date}
                 </span>
 
                 {/* Budget */}
                 <span
-                  className={`hidden sm:block text-sm font-medium ${dest.budgetColor} w-24 shrink-0`}
+                  className={`hidden md:block text-sm font-medium ${dest.budgetColor} w-24 shrink-0`}
                 >
                   {dest.budget} · {dest.budgetAmount}
                 </span>
@@ -282,7 +282,7 @@ export default function FavoritesPage() {
               </div>
 
               {/* Mobile-only tags */}
-              <div className="sm:hidden flex items-center gap-2 mt-2 ml-20">
+              <div className="md:hidden flex items-center gap-2 mt-2 pl-20">
                 <span
                   className={`text-xs font-semibold px-2 py-0.5 rounded-full ${dest.statusColor}`}
                 >
